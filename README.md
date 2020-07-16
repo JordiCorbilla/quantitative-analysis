@@ -9,7 +9,7 @@ Once Anaconda is installed, launch the command line with **Admin** permissions.
 
 Below is the list of packages to install and commands to run on the Anaconda console: 
 
-### 1.1)Updating Anaconda
+### 1.1) Updating Anaconda
 
 ```cmd
 conda update -n base conda
@@ -603,4 +603,51 @@ DEBUG menuinst_win32:create(323): Shortcut cmd is C:\Users\thund\Anaconda3\pytho
 | DEBUG menuinst_win32:create(323): Shortcut cmd is C:\Users\thund\Anaconda3\python.exe, args are ['C:\\Users\\thund\\Anaconda3\\cwp.py', 'C:\\Users\\thund\\Anaconda3\\envs\\quant', 'C:\\Users\\thund\\Anaconda3\\envs\\quant\\python.exe', 'C:\\Users\\thund\\Anaconda3\\envs\\quant\\Scripts\\spyder-script.py', '--reset']
 done
 ```
+To launch spyder
+```cmd
+//launch
+spyder
+//launch new instance if there is one already there
+spyder --new-instance
+```
+
+# 2) Downloading Stock Data using yFinance (Yahoo Finance)
+
+We will use the implementation in one of my [repos](https://github.com/JordiCorbilla/stock-prediction-deep-neural-learning) that uses [yFinance](https://aroussi.com/post/python-yahoo-finance) library.
+
+install yFinance using pip:
+
+```cmd
+(quant) C:\Users\thund>pip install yfinance --upgrade --no-cache-dir
+Collecting yfinance
+  Downloading yfinance-0.1.54.tar.gz (19 kB)
+Collecting pandas>=0.24
+  Downloading pandas-1.0.5-cp38-cp38-win_amd64.whl (8.9 MB)
+     |████████████████████████████████| 8.9 MB 1.1 MB/s
+Collecting numpy>=1.15
+  Downloading numpy-1.19.0-cp38-cp38-win_amd64.whl (13.0 MB)
+     |████████████████████████████████| 13.0 MB 3.3 MB/s
+Requirement already satisfied, skipping upgrade: requests>=2.20 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from yfinance) (2.24.0)
+Collecting multitasking>=0.0.7
+  Downloading multitasking-0.0.9.tar.gz (8.1 kB)
+Requirement already satisfied, skipping upgrade: python-dateutil>=2.6.1 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from pandas>=0.24->yfinance) (2.8.1)
+Requirement already satisfied, skipping upgrade: pytz>=2017.2 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from pandas>=0.24->yfinance) (2020.1)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests>=2.20->yfinance) (2020.6.20)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests>=2.20->yfinance) (3.0.4)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests>=2.20->yfinance) (1.25.9)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests>=2.20->yfinance) (2.10)
+Requirement already satisfied, skipping upgrade: six>=1.5 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from python-dateutil>=2.6.1->pandas>=0.24->yfinance) (1.15.0)
+Building wheels for collected packages: yfinance, multitasking
+  Building wheel for yfinance (setup.py) ... done
+  Created wheel for yfinance: filename=yfinance-0.1.54-py2.py3-none-any.whl size=22415 sha256=f2012024154c9d90ef74531a2d4d6ef612938ef0e5010d893af3f8b0e71f0b9b
+  Stored in directory: C:\Users\thund\AppData\Local\Temp\pip-ephem-wheel-cache-3wmlyd71\wheels\d9\55\e4\3fc43a4f56c7c18628bc24088be1d7168a832a91efa5ccc5da
+  Building wheel for multitasking (setup.py) ... done
+  Created wheel for multitasking: filename=multitasking-0.0.9-py3-none-any.whl size=8374 sha256=9bb92d3d62a3ef2727bde33c8d52f06bc27e2acdeab301d89f9ec6c5bf95d8cd
+  Stored in directory: C:\Users\thund\AppData\Local\Temp\pip-ephem-wheel-cache-3wmlyd71\wheels\57\6d\a3\a39b839cc75274d2acfb1c58bfead2f726c6577fe8c4723f13
+Successfully built yfinance multitasking
+Installing collected packages: numpy, pandas, multitasking, yfinance
+Successfully installed multitasking-0.0.9 numpy-1.19.0 pandas-1.0.5 yfinance-0.1.54
+```
+
+# 2.1) Testing yFinance
 

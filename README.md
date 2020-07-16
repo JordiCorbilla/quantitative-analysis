@@ -611,7 +611,7 @@ spyder
 spyder --new-instance
 ```
 
-# 2) Downloading Stock Data using yFinance (Yahoo Finance)
+## 2) Downloading Stock Data using yFinance (Yahoo Finance)
 
 We will use the implementation in one of my [repos](https://github.com/JordiCorbilla/stock-prediction-deep-neural-learning) that uses [yFinance](https://aroussi.com/post/python-yahoo-finance) library.
 
@@ -649,7 +649,7 @@ Installing collected packages: numpy, pandas, multitasking, yfinance
 Successfully installed multitasking-0.0.9 numpy-1.19.0 pandas-1.0.5 yfinance-0.1.54
 ```
 
-# 2.1) Testing yFinance
+### 2.1) Testing yFinance
 
 We can create a python script in Spyder and run the following code to get the data as show in the picture below:
 
@@ -666,3 +666,20 @@ print(json.dumps(sec.info, indent=4, sort_keys=True))
 
 ![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-dataframe.png)
 
+### 2.2) Downloading information from multiple stocks and from different exchanges
+
+We will be able to download any stock if this one is available through Yahoo Finance. So, if you want to check for different markets, you just need to look it up there and save the Yahoo symbol ticker that we can use in the yFinance library as shown below:
+
+```python
+# Sample Stocks: TESLA, AMAZON, GOOGLE, MICROSOFT, FACEBOOK, Future CME and CAIXABANK
+stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
+start_date = datetime.today()-timedelta(30)
+end_date = datetime.today()
+close_price = pd.DataFrame()
+
+# Interested in getting the close price
+for symbol_ticker in stocks:
+    close_price[symbol_ticker] = yf.download(symbol_ticker, start_date, end_date)['Close']
+```
+
+![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-dataframe-multiple.png)

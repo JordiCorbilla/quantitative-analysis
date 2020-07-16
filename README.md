@@ -651,3 +651,18 @@ Successfully installed multitasking-0.0.9 numpy-1.19.0 pandas-1.0.5 yfinance-0.1
 
 # 2.1) Testing yFinance
 
+We can create a python script in Spyder and run the following code to get the data as show in the picture below:
+
+```python
+import yfinance as yf
+import json
+
+sec = yf.Ticker("TSLA")
+data = yf.download("TSLA", period="1y")
+
+print('Info')
+print(json.dumps(sec.info, indent=4, sort_keys=True))
+```
+
+![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-dataframe.png)
+

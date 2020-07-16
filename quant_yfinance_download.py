@@ -18,9 +18,19 @@
 
 import yfinance as yf
 import json
+import pandas as pd
+from datetime import datetime, timedelta
 
 sec = yf.Ticker("TSLA")
 data = yf.download("TSLA", period="1y")
 
 print('Info')
 print(json.dumps(sec.info, indent=4, sort_keys=True))
+
+stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
+start_date = datetime.today()-timedelta(30)
+end_date = datetime.today()
+close_price = pd.DataFrame()
+
+for symbol_ticker in stocks:
+    close_price[symbol_ticker] = yf.download(symbol_ticker, start_date, end_date)['Close']

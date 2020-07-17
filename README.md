@@ -706,3 +706,19 @@ Successfully built yahoofinancials
 Installing collected packages: soupsieve, beautifulsoup4, yahoofinancials
 Successfully installed beautifulsoup4-4.9.1 soupsieve-2.0.1 yahoofinancials-1.5
 ```
+
+This library returns the content of the request in a JSON format which we need to work with.
+
+```python
+from yahoofinancials import YahooFinancials
+from datetime import datetime
+
+ticker = 'GOOG'
+yahoo_financials = YahooFinancials(ticker)
+end_date = datetime.today()
+
+historical_stock_prices = yahoo_financials.get_historical_price_data('2004-08-01', end_date.strftime("%Y-%m-%d"), 'weekly')
+```
+
+![](https://github.com/JordiCorbilla/quantitative-analysis/blob/master/spyder-dataframe-yahoofinancials.png)
+

@@ -686,4 +686,23 @@ for symbol_ticker in stocks:
 
 ### 2.3) Alternative libraries like yahooFinancials
 
-An alternative library to yFinance is [yahooFinancials](https://github.com/JECSand/yahoofinancials).
+An alternative library to yFinance is [yahooFinancials](https://github.com/JECSand/yahoofinancials). Install the library in your environment using the following command:
+
+```cmd
+(quant) C:\Users\thund>pip install yahoofinancials
+Collecting yahoofinancials
+  Downloading yahoofinancials-1.5.tar.gz (27 kB)
+Collecting beautifulsoup4
+  Downloading beautifulsoup4-4.9.1-py3-none-any.whl (115 kB)
+     |████████████████████████████████| 115 kB 6.4 MB/s
+Requirement already satisfied: pytz in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from yahoofinancials) (2020.1)
+Collecting soupsieve>1.2
+  Downloading soupsieve-2.0.1-py3-none-any.whl (32 kB)
+Building wheels for collected packages: yahoofinancials
+  Building wheel for yahoofinancials (setup.py) ... done
+  Created wheel for yahoofinancials: filename=yahoofinancials-1.5-py3-none-any.whl size=15199 sha256=a670bbd99a06683ae397085e14b2ebb4adce96132659af0b2e044be146e27358
+  Stored in directory: c:\users\thund\appdata\local\pip\cache\wheels\a7\85\13\c1f488d14f320c35c4dc2bee98060afd0b04f442cd706c4722
+Successfully built yahoofinancials
+Installing collected packages: soupsieve, beautifulsoup4, yahoofinancials
+Successfully installed beautifulsoup4-4.9.1 soupsieve-2.0.1 yahoofinancials-1.5
+```

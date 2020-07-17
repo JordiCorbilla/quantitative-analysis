@@ -683,3 +683,7 @@ for symbol_ticker in stocks:
 ```
 
 ![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-dataframe-multiple.png)
+
+### 2.3) Alternative libraries like yahooFinancials
+
+An alternative library to yFinance is [yahooFinancials](https://github.com/JECSand/yahoofinancials).

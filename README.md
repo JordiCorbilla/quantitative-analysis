@@ -707,7 +707,7 @@ Installing collected packages: soupsieve, beautifulsoup4, yahoofinancials
 Successfully installed beautifulsoup4-4.9.1 soupsieve-2.0.1 yahoofinancials-1.5
 ```
 
-This library returns the content of the request in a JSON format which we need to work with.
+This library returns the content of the request in a JSON format which we need to work with. We cannot get intraday date as the minimum period is 1 day. We can achieve greater granularity using the yFinance library.
 
 ```python
 from yahoofinancials import YahooFinancials

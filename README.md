@@ -2,6 +2,10 @@
 
 Algorithmic trading and Quantitative Analysis
 
+## Introduction
+
+This repo brings essential algorithmic quantitative analysis using python 3.8 to get you into the world of algorithmic trading.
+
 ## 1) Setup
 To execute all the code in this repo, we'll use [Anaconda3](https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe) and [Spyder IDE](https://www.spyder-ide.org/) which will allow us to create virtual environments. 
 

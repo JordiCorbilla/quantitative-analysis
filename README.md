@@ -615,7 +615,7 @@ spyder
 spyder --new-instance
 ```
 
-## 2) Downloading Stock Data using yFinance (Yahoo Finance)
+## 2) Downloading Stock Data using **yFinance**, **YahooFinance** and **Alpha Vantage** libraries
 
 We will use the implementation in one of my [repos](https://github.com/JordiCorbilla/stock-prediction-deep-neural-learning) that uses [yFinance](https://aroussi.com/post/python-yahoo-finance) library.
 
@@ -688,7 +688,7 @@ for symbol_ticker in stocks:
 
 ![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-dataframe-multiple.png)
 
-### 2.3) Alternative libraries like yahooFinancials
+### 2.3) Downloading market data using yahooFinancials
 
 An alternative library to yFinance is [yahooFinancials](https://github.com/JECSand/yahoofinancials). Install the library in your environment using the following command:
 
@@ -725,4 +725,33 @@ historical_stock_prices = yahoo_financials.get_historical_price_data('2004-08-01
 ```
 
 ![](https://github.com/JordiCorbilla/quantitative-analysis/blob/master/spyder-dataframe-yahoofinancials.png)
+
+To get multiple stocks similarly like we did for yFinance, we can do something similar to the below:
+
+```python
+start_date = datetime.today()-timedelta(30)
+stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
+close_price = pd.DataFrame()
+adjusted_close_price = pd.DataFrame()
+
+for symbol_ticker in stocks:
+    yahoo_financials = YahooFinancials(symbol_ticker)
+    # no intraday option possible for yahoo financials library
+    historical_stock_prices = yahoo_financials.get_historical_price_data(start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"), 'daily')
+    prices = historical_stock_prices[symbol_ticker]['prices']
+    # Define a DataFrame out of the JSON
+    prices_to_dataframe = pd.DataFrame(prices)[['formatted_date', 'close', 'adjclose']]
+    # Specify the time series as the index
+    prices_to_dataframe.set_index('formatted_date', inplace=True)
+    # Remove all missing values Na*
+    prices_to_dataframe.dropna(inplace=True)
+    close_price[symbol_ticker] = prices_to_dataframe['close']
+    adjusted_close_price[symbol_ticker] = prices_to_dataframe['adjclose']
+```
+
+### 2.4) Downloading market data using Alpha Vantage
+
+[Alpha Vantage](https://www.alphavantage.co/) is a very useful library to get finance information. For this one, we need to create a [free API key](https://www.alphavantage.co/support/#api-key):
+
+
 

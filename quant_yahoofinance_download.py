@@ -17,10 +17,30 @@
 # ==============================================================================
 
 from yahoofinancials import YahooFinancials
-from datetime import datetime
+import pandas as pd
+from datetime import datetime, timedelta
 
 ticker = 'GOOG'
 yahoo_financials = YahooFinancials(ticker)
 end_date = datetime.today()
 
 historical_stock_prices = yahoo_financials.get_historical_price_data('2004-08-01', end_date.strftime("%Y-%m-%d"), 'weekly')
+
+# Downloading multiple tickers
+
+start_date = datetime.today()-timedelta(30)
+stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
+close_price = pd.DataFrame()
+
+for symbol_ticker in stocks:
+    yahoo_financials = YahooFinancials(symbol_ticker)
+    # no intraday option possible for yahoo financials library
+    historical_stock_prices = yahoo_financials.get_historical_price_data(start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"), 'daily')
+    prices = historical_stock_prices[symbol_ticker]['prices']
+    # Define a DataFrame out of the JSON
+    prices_to_dataframe = pd.DataFrame(prices)[['formatted_date', 'close']]
+    # Specify the time series as the index
+    prices_to_dataframe.set_index('formatted_date', inplace=True)
+    # Remove all missing values Na*
+    prices_to_dataframe.dropna(inplace=True)
+    close_price[symbol_ticker] = prices_to_dataframe['close']

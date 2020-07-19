@@ -31,6 +31,9 @@ stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
 start_date = datetime.today()-timedelta(30)
 end_date = datetime.today()
 close_price = pd.DataFrame()
+adjusted_close_price = pd.DataFrame()
 
 for symbol_ticker in stocks:
-    close_price[symbol_ticker] = yf.download(symbol_ticker, start_date, end_date)['Close']
+    downloaded_data = yf.download(symbol_ticker, start_date, end_date)
+    close_price[symbol_ticker] = downloaded_data['Close']
+    adjusted_close_price[symbol_ticker] = downloaded_data['Adj Close']

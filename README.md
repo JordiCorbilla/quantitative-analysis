@@ -4,7 +4,7 @@ Algorithmic trading and Quantitative Analysis
 
 ## Introduction
 
-This repo brings essential algorithmic quantitative analysis using python 3.8 to get you into the world of algorithmic trading.
+This repo brings essential algorithmic quantitative analysis using **python 3.8** to get you into the world of algorithmic trading.
 
 ## 1) Setup
 To execute all the code in this repo, we'll use [Anaconda3](https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe) and [Spyder IDE](https://www.spyder-ide.org/) which will allow us to create virtual environments. 
@@ -751,7 +751,39 @@ for symbol_ticker in stocks:
 
 ### 2.4) Downloading market data using Alpha Vantage
 
-[Alpha Vantage](https://www.alphavantage.co/) is a very useful library to get finance information. For this one, we need to create a [free API key](https://www.alphavantage.co/support/#api-key):
+[Alpha Vantage](https://www.alphavantage.co/) is a very useful library to get finance information. For this one, we need to create a [free API key](https://www.alphavantage.co/support/#api-key). Once you have the API Key, you can download the python wrapper so you don't have to deal with the api calls and use python instead to retrieve the data. As a limitation, the API allows you to hit the end-point roughly 5 times a minute for intraday data.
+
+Install the package using the command below:
+
+```cmd
+(quant) C:\Users\thund>pip install alpha_vantage
+Collecting alpha_vantage
+  Downloading alpha_vantage-2.2.0.tar.gz (20 kB)
+Collecting aiohttp
+  Downloading aiohttp-3.6.2-py3-none-any.whl (441 kB)
+     |████████████████████████████████| 441 kB 6.4 MB/s
+Requirement already satisfied: requests in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from alpha_vantage) (2.24.0)
+Collecting async-timeout<4.0,>=3.0
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Collecting multidict<5.0,>=4.5
+  Downloading multidict-4.7.6-cp38-cp38-win_amd64.whl (48 kB)
+     |████████████████████████████████| 48 kB 1.4 MB/s
+Requirement already satisfied: chardet<4.0,>=2.0 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from aiohttp->alpha_vantage) (3.0.4)
+Requirement already satisfied: attrs>=17.3.0 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from aiohttp->alpha_vantage) (19.3.0)
+Collecting yarl<2.0,>=1.0
+  Downloading yarl-1.4.2-cp38-cp38-win_amd64.whl (126 kB)
+     |████████████████████████████████| 126 kB 6.4 MB/s
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests->alpha_vantage) (1.25.9)
+Requirement already satisfied: idna<3,>=2.5 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests->alpha_vantage) (2.10)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\thund\anaconda3\envs\quant\lib\site-packages (from requests->alpha_vantage) (2020.6.20)
+Building wheels for collected packages: alpha-vantage
+  Building wheel for alpha-vantage (setup.py) ... done
+  Created wheel for alpha-vantage: filename=alpha_vantage-2.2.0-py3-none-any.whl size=25708 sha256=2bb0e097c138bb96eeb6d4658f09a75e8f452073d3a03f7097bd82ba0ee14047
+  Stored in directory: c:\users\thund\appdata\local\pip\cache\wheels\65\a6\d1\27d8cdcd3b580321f53d02f698e8bfa3ef6bc432b81aefeb7f
+Successfully built alpha-vantage
+Installing collected packages: async-timeout, multidict, yarl, aiohttp, alpha-vantage
+Successfully installed aiohttp-3.6.2 alpha-vantage-2.2.0 async-timeout-3.0.1 multidict-4.7.6 yarl-1.4.2
+```
 
 
 

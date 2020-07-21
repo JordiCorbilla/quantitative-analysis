@@ -785,5 +785,14 @@ Installing collected packages: async-timeout, multidict, yarl, aiohttp, alpha-va
 Successfully installed aiohttp-3.6.2 alpha-vantage-2.2.0 async-timeout-3.0.1 multidict-4.7.6 yarl-1.4.2
 ```
 
+To download the data of a single ticker, we can use the following code:
 
+```python
+from alpha_vantage.timeseries import TimeSeries
 
+ts = TimeSeries(key='yourkeyhere!', output_format='pandas')
+data = ts.get_daily('TSLA', outputsize='full')[0]
+data.columns = ['open','high', 'low', 'close', 'volume']
+```
+
+![](https://github.com/JordiCorbilla/quantitative-analysis/blob/master/spyder-alpha-ventage.png)

@@ -799,4 +799,4 @@ data = ts.get_daily('TSLA', outputsize='full')[0]
 data.columns = ['open','high', 'low', 'close', 'volume']
 ```
 
-![](https://github.com/JordiCorbilla/quantitative-analysis/blob/master/spyder-alpha-ventage.png)
+![](https://github.com/JordiCorbilla/quantitative-analysis/raw/master/spyder-alpha-vantage.png)

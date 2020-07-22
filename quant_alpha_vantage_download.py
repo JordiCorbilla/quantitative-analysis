@@ -16,7 +16,28 @@
 # limitations under the License.
 # ==============================================================================
 from alpha_vantage.timeseries import TimeSeries
+import pandas as pd
+import time as time
 
-ts = TimeSeries(key='yourkeyhere!', output_format='pandas')
+KEY = 'yourkeyhere!'
+
+ts = TimeSeries(key=KEY, output_format='pandas')
 data = ts.get_daily('TSLA', outputsize='full')[0]
 data.columns = ['open','high', 'low', 'close', 'volume']
+
+stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
+close_price = pd.DataFrame()
+
+# To overcome the API call frequency limitation, we need to make our query slower
+number_api_calls = 0
+for symbol_ticker in stocks:
+    start_time = time.time()
+    ts = TimeSeries(key=KEY, output_format='pandas')
+    data = ts.get_intraday(symbol=symbol_ticker, interval='1min', outputsize='full')[0]
+    number_api_calls += 1
+    data.columns = ['open','high', 'low', 'close', 'volume']
+    close_price[symbol_ticker] = data['close']
+    if number_api_calls == 5:
+        number_api_calls = 0
+        time.sleep(60 - ((time.time() - start_time) % 60.0))
+        

@@ -25,6 +25,8 @@ KEY = 'yourkeyhere!'
 ts = TimeSeries(key=KEY, output_format='pandas')
 data = ts.get_daily('TSLA', outputsize='full')[0]
 data.columns = ['open', 'high', 'low', 'close', 'volume']
+# Data comes sorted by date desc and we need to reverse it
+data = data.iloc[::-1]
 
 stocks = ["TSLA", "AMZN", "GOOG", "MSFT", "FB", "ES=F", "CABK.MC"]
 close_price = pd.DataFrame()

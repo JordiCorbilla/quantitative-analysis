@@ -751,7 +751,11 @@ for symbol_ticker in stocks:
 
 ### 2.4) Downloading market data using Alpha Vantage
 
-[Alpha Vantage](https://www.alphavantage.co/) is a very useful library to get finance information. For this one, we need to create a [free API key](https://www.alphavantage.co/support/#api-key). Once you have the API Key, you can download the python wrapper so you don't have to deal with the api calls and use python instead to retrieve the data. As a limitation, the API allows you to hit the end-point roughly 5 times a minute for intraday data.
+[Alpha Vantage](https://www.alphavantage.co/) is a very useful library to get finance information. For this one, we need to create a [free API key](https://www.alphavantage.co/support/#api-key). Once you have the API Key, you can download the python wrapper so you don't have to deal with the api calls and use python instead to retrieve the data. As a limitation, the API allows you to hit the end-point roughly 5 times a minute for intraday data. If you go over it, the API just raises an exception with the following content:
+
+```cmd
+ValueError: Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency.
+```
 
 Install the package using the command below:
 

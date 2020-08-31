@@ -9,7 +9,7 @@ This repo brings essential algorithmic quantitative analysis using **python 3.8*
 ## 1) Setup
 To execute all the code in this repo, we'll use [Anaconda3](https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe) and [Spyder IDE](https://www.spyder-ide.org/) which will allow us to create virtual environments. 
 
-Once Anaconda is installed, launch the command line with **Admin** permissions. 
+Once Anaconda is installed, launch the command line `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)\Anaconda Prompt` with **Admin** permissions. 
 
 Below is the list of packages to install and commands to run on the Anaconda console: 
 
